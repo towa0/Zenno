@@ -2,11 +2,20 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Button from "../components/Button";
 import landingPageImage from "../assets/ZennoLanding.png";
+import BackgroundCircles from "../components/BackgroundCircles";
 
 const landingPage = () => {
   return (
-    <section className="max-w-6xl min-h-screen mx-auto ">
+    <section className="max-w-6xl min-h-screen mx-auto">
       <Navbar />
+      <BackgroundCircles
+        circles={[
+          { top: "34vh", left: "25vw", size: 150, color: "bg-blue-400" },
+          { top: "65vh", left: "35vw", size: 150, color: "bg-indigo-400" },
+          { top: "55vh", left: "20vw", size: 170, color: "bg-purple-400" },
+        ]}
+      />
+
       <div className="mt-[15vh]">
         <div className="sm:hidden w-full mb-8">
           <img

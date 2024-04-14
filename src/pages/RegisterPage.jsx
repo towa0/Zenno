@@ -3,13 +3,18 @@ import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Login aa", username, password);
+    if (password !== confirmPassword) {
+      console.error("Passwords do not match!");
+      return;
+    }
+    console.log("Register attempt", username, password);
   };
 
   return (
@@ -17,14 +22,14 @@ const LoginPage = () => {
       <Navbar />
       <div className="flex justify-center mt-[15vh] items-center">
         <div className="w-full max-w-md p-8 space-y-6 rounded-xl shadow-lg border-2 bg-background border-gray-300">
-          <h1 className="text-2xl font-bold  text-center text-mainDark">
-            Login
+          <h1 className="text-2xl font-bold text-center text-mainDark">
+            Register
           </h1>
-          <form onSubmit={handleSubmit} className="space-y-6 ">
-            <div className="">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
               <label
                 htmlFor="username"
-                className="block mb-2 text-sm font-medium text-gray-700 "
+                className="block mb-2 text-sm font-medium text-gray-700"
               >
                 Gebruikersnaam
               </label>
@@ -34,11 +39,11 @@ const LoginPage = () => {
                 name="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full  p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
                 required
               />
             </div>
-            <div className="">
+            <div>
               <label
                 htmlFor="password"
                 className="block mb-2 text-sm font-medium text-gray-700"
@@ -51,24 +56,39 @@ const LoginPage = () => {
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full mb-4 p-2 border  border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="confirmPassword"
+                className="block mb-2 text-sm font-medium text-gray-700"
+              >
+                Herhaal wachtwoord
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
                 required
               />
             </div>
             <p>
-              Geen account? Registreer{" "}
+              Al een account? Login{" "}
               <span className="text-mainBlue underline">
-                <Link to="/register">hier</Link>
+                <Link to="/log-in">hier</Link>
               </span>
             </p>
             <button
-              onClick={handleSubmit}
+              type="submit"
               className="border-2 rounded-xl font-bold duration-200 px-4 py-2 border-mainBlue bg-mainBlue text-white hover:bg-mainBlue/80"
             >
-              Log in
+              Register
             </button>
-            {/* <Button label="Login" primary={true} /> */}
-            {/* TODO fix onlick in Button component */}
           </form>
         </div>
       </div>
@@ -76,4 +96,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
