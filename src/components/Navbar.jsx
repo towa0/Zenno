@@ -55,7 +55,7 @@ const Navbar = () => {
         <NavLink to="/contact" className={linkClass}>
           Contact
         </NavLink>
-        {user && (
+        {user && user.functie === "admin" && (
           <NavLink to="/admin" className={linkClass}>
             Admin
           </NavLink>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../backend/AuthProvider";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -10,14 +12,29 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (username === "admin" && password === "password") {
-      login({ username, password });
-      navigate("/admin");
-    } else {
-      alert("Invalid username or password");
-    }
-  };
 
+    axios
+      .post("http://localhost:3001/login", {
+        username: username,
+        password: password,
+      })
+      .then((res) => {
+        if (res.data.validation) {
+          login(res.data.user);
+          if (res.data.user.functie === "admin") {
+            navigate("/admin");
+            console.log("admin");
+          } else {
+            navigate("/");
+          }
+        } else {
+          alert("Your password is not correct. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
   return (
     <section className="max-w-6xl mx-auto min-h-screen">
       <div className="flex justify-center mt-[15vh] items-center">

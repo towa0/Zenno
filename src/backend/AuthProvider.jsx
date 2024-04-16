@@ -10,8 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = (userCredentials) => {
-    // demo
-    setUser({ id: "1", username: "admin" });
+    setUser(userCredentials);
   };
 
   const logout = () => {

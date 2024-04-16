@@ -1,18 +1,32 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (password !== confirmPassword) {
-      console.error("Passwords do not match!");
-      return;
-    }
-    console.log("Register attempt", username, password);
+    axios
+      .post("http://localhost:3001/register", {
+        username: username,
+        password: password,
+        email: email,
+      })
+      .then((res) => {
+        if (res.data.validation) {
+          navigate("/log-in");
+        } else {
+          alert("Registration failed. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
@@ -59,17 +73,17 @@ const RegisterPage = () => {
             </div>
             <div>
               <label
-                htmlFor="confirmPassword"
+                htmlFor="email"
                 className="block mb-2 text-sm font-medium text-gray-700"
               >
-                Herhaal wachtwoord
+                Email
               </label>
               <input
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
                 required
               />
