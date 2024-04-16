@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../backend/AuthProvider";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Login aa", username, password);
+    if (username === "admin" && password === "password") {
+      login({ username, password });
+      navigate("/admin");
+    } else {
+      alert("Invalid username or password");
+    }
   };
 
   return (
@@ -17,11 +25,11 @@ const LoginPage = () => {
           <h1 className="text-2xl font-bold  text-center text-mainDark">
             Login
           </h1>
-          <form onSubmit={handleSubmit} className="space-y-6 ">
-            <div className="">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
               <label
                 htmlFor="username"
-                className="block mb-2 text-sm font-medium text-gray-700 "
+                className="block mb-2 text-sm font-medium text-gray-700"
               >
                 Gebruikersnaam
               </label>
@@ -31,11 +39,11 @@ const LoginPage = () => {
                 name="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full  p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
                 required
               />
             </div>
-            <div className="">
+            <div>
               <label
                 htmlFor="password"
                 className="block mb-2 text-sm font-medium text-gray-700"
@@ -48,7 +56,7 @@ const LoginPage = () => {
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full mb-4 p-2 border  border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
+                className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
                 required
               />
             </div>
@@ -59,13 +67,11 @@ const LoginPage = () => {
               </span>
             </p>
             <button
-              onClick={handleSubmit}
-              className="border-2 rounded-xl font-bold duration-200 px-4 py-2 border-mainBlue bg-mainBlue text-white hover:bg-mainBlue/80"
+              type="submit"
+              className="w-full border-2 rounded-xl font-bold duration-200 px-4 py-2 border-mainBlue bg-mainBlue text-white hover:bg-mainBlue/80"
             >
               Log in
             </button>
-            {/* <Button label="Login" primary={true} /> */}
-            {/* TODO fix onlick in Button component */}
           </form>
         </div>
       </div>

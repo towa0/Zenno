@@ -1,13 +1,16 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrFormClose } from "react-icons/gr";
 import Header from "./Header";
 import Button from "./Button";
 import navLogo from "../assets/zennoLogo.png";
+import { useAuth } from "../backend/AuthProvider";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -15,6 +18,11 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setMenuOpen(false);
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
   };
 
   const linkClass = ({ isActive }) =>
@@ -47,10 +55,23 @@ const Navbar = () => {
         <NavLink to="/contact" className={linkClass}>
           Contact
         </NavLink>
+        {user && (
+          <NavLink to="/admin" className={linkClass}>
+            Admin
+          </NavLink>
+        )}
       </div>
       <div className="hidden sm:flex items-center space-x-4">
-        <Button to="/log-in" label="Log in" primary={true} />
-        <Button to="/register" label="Register" primary={false} />
+        {!user ? (
+          <>
+            <Button to="/log-in" label="Log in" primary={true} />
+            <Button to="/register" label="Register" primary={false} />
+          </>
+        ) : (
+          <>
+            <Button onClick={handleLogout} primary={true} label={"Log out"} />
+          </>
+        )}
       </div>
 
       <div className="lg:hidden w-full flex items-center justify-end">
@@ -81,24 +102,30 @@ const Navbar = () => {
             <NavLink
               to="/apps"
               className="text-4xl font-bold duration-200 block"
-              onClick={closeMenu}
             >
               Apps
             </NavLink>
             <NavLink
               to="/over-ons"
               className="text-4xl font-bold duration-200 block"
-              onClick={closeMenu}
             >
               Over ons
             </NavLink>
             <NavLink
               to="/contact"
               className="text-4xl font-bold duration-200 block"
-              onClick={closeMenu}
             >
               Contact
             </NavLink>
+            {user && (
+              <NavLink
+                to="/admin"
+                className="text-4xl font-bold duration-200 block"
+                onClick={closeMenu}
+              >
+                Admin
+              </NavLink>
+            )}
           </div>
         </div>
       )}
