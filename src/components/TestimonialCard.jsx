@@ -2,7 +2,7 @@ import { RiDoubleQuotesL } from "react-icons/ri";
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="mb-8 rounded-lg shadow-xl border-gray-300 bg-background">
+    <div className="mb-8 rounded-lg shadow-xl border-gray-300 bg-background/30 backdrop-blur-md">
       <div className="relative z-20 p-8 rounded-xl">
         <div className="flex items-center mb-5 gap-x-4">
           <div className="relative w-24 h-24 rounded-full">

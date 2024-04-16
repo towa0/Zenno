@@ -3,7 +3,7 @@ import Button from "../components/Button";
 
 const ProductCard = ({ software }) => {
   return (
-    <div className="bg-background flex flex-col justify-between p-6 cursor-pointer hover:shadow-xl rounded-xl border-2 border-gray-300 shadow-lg transition-shadow duration-300 ease-in-out">
+    <div className="bg-background/30 backdrop-blur-md flex flex-col justify-between p-6 cursor-pointer hover:shadow-xl rounded-xl border-2 border-gray-300 shadow-lg transition-shadow duration-300 ease-in-out">
       <div>
         <h1 className="text-2xl font-bold text-mainDark my-3 text-center">
           {software.title}

@@ -8,6 +8,7 @@ const BackgroundCircles = ({ circles }) => {
         <div
           key={index}
           className={clsx(
+            "circle-animation",
             "absolute",
             "mix-blend-multiply",
             "filter",
@@ -20,6 +21,8 @@ const BackgroundCircles = ({ circles }) => {
             left: `${circle.left}`,
             width: `${circle.size}px`,
             height: `${circle.size}px`,
+            animationDuration: `${4 + Math.random() * 2}s`, // Between 4 and 6 seconds
+            animationDelay: `${Math.random() * 2}s`,
           }}
         />
       ))}

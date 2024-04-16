@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Button from "../components/Button";
-import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
@@ -14,7 +12,6 @@ const LoginPage = () => {
 
   return (
     <section className="max-w-6xl mx-auto min-h-screen">
-      <Navbar />
       <div className="flex justify-center mt-[15vh] items-center">
         <div className="w-full max-w-md p-8 space-y-6 rounded-xl shadow-lg border-2 bg-background border-gray-300">
           <h1 className="text-2xl font-bold  text-center text-mainDark">

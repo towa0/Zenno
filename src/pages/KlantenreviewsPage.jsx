@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { testimonials } from "../constants/index";
 import Button from "../components/Button";
 import TestimonialCard from "../components/TestimonialCard";
+import Questions from "../components/Questions";
 
 const KlantenreviewsPage = () => {
   const [visibleTestimonials, setVisibleTestimonials] = useState(3);
@@ -41,6 +42,7 @@ const KlantenreviewsPage = () => {
           // fix deze dogshit button aub
         )}
       </div>
+      <Questions />
     </section>
   );
 };

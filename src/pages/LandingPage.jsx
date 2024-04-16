@@ -1,5 +1,3 @@
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 import Button from "../components/Button";
 import landingPageImage from "../assets/ZennoLanding.png";
 import BackgroundCircles from "../components/BackgroundCircles";
@@ -7,7 +5,6 @@ import BackgroundCircles from "../components/BackgroundCircles";
 const landingPage = () => {
   return (
     <section className="max-w-6xl min-h-screen mx-auto">
-      <Navbar />
       <BackgroundCircles
         circles={[
           { top: "34vh", left: "25vw", size: 150, color: "bg-blue-400" },
@@ -26,16 +23,15 @@ const landingPage = () => {
         </div>
         <div className="max-w-screen-xl flex ml-[4vw] items-center mb-16">
           <div className="text-center sm:text-left pr-20">
-            <h1 className="text-3xl font-bold text-mainDark">
-              Welkom bij Zen<span className="text-mainBlue">no.</span> - Jouw
-              Premier Bestemming voor Software!
+            <h1 className="text-5xl font-bold text-mainDark">
+              Welkom bij Zen<span className="text-mainBlue">no.</span>
             </h1>
-            <p className="text-md my-8 text-gray-500 sm:w-[25vw] ">
-              Bij Zenno geloven we dat de juiste software jouw bedrijfsvoering
-              kan transformeren. Verken ons uitgebreide assortiment aan
-              softwareproducten, ontworpen om jouw productiviteit te verhogen,
-              bedrijfsprocessen te stroomlijnen en je creativiteit te
-              stimuleren.
+            <p className="text-md my-8 text-gray-500 sm:w-[25vw]">
+              Bij Zenno geloven we dat de juiste software jouw{" "}
+              <strong>bedrijfsvoering kan transformeren.</strong> Ontdek ons
+              uitgebreide assortiment softwareproducten, ontworpen om jouw
+              <strong>productiviteit te verhogen</strong> en{" "}
+              <strong>bedrijfsprocessen te stroomlijnen.</strong>
             </p>
             <Button to="/log-in" label="Bekijk software" primary={true} />
           </div>

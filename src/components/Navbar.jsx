@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrFormClose } from "react-icons/gr";
@@ -23,7 +23,7 @@ const Navbar = () => {
       : "font-bold text-mainDark hover:text-mainBlue duration-200";
 
   return (
-    <nav className="w-full h-[10vh] flex items-center justify-between px-4 lg:px-10">
+    <nav className="max-w-6xl mx-auto h-[10vh] flex items-center justify-between px-4 lg:px-10">
       <img
         className="mr-3"
         src={navLogo}
@@ -31,7 +31,9 @@ const Navbar = () => {
         height={30}
         alt="ZennoLogo"
       />
-      <Header textSize={"text-3xl"} />
+      <Link to={"/"}>
+        <Header textSize={"text-3xl"} />
+      </Link>
       <div className="flex-grow md:flex items-center justify-center hidden lg:flex space-x-10">
         <NavLink to="/" className={linkClass}>
           Home
@@ -39,11 +41,11 @@ const Navbar = () => {
         <NavLink to="/apps" className={linkClass}>
           Apps
         </NavLink>
-        <NavLink to="/Lorem" className={linkClass}>
-          Lorem
+        <NavLink to="/over-ons" className={linkClass}>
+          Over ons
         </NavLink>
-        <NavLink to="/Lorem2" className={linkClass}>
-          Lorem
+        <NavLink to="/contact" className={linkClass}>
+          Contact
         </NavLink>
       </div>
       <div className="hidden sm:flex items-center space-x-4">
@@ -77,25 +79,25 @@ const Navbar = () => {
               Home
             </NavLink>
             <NavLink
-              to="/Apps"
+              to="/apps"
               className="text-4xl font-bold duration-200 block"
               onClick={closeMenu}
             >
               Apps
             </NavLink>
             <NavLink
-              to="/Lorem"
+              to="/over-ons"
               className="text-4xl font-bold duration-200 block"
               onClick={closeMenu}
             >
-              Lorem
+              Over ons
             </NavLink>
             <NavLink
-              to="/Lorem2"
+              to="/contact"
               className="text-4xl font-bold duration-200 block"
               onClick={closeMenu}
             >
-              Lorem
+              Contact
             </NavLink>
           </div>
         </div>
