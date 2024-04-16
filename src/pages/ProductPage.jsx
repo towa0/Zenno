@@ -1,17 +1,24 @@
+import React, { useState, useEffect } from "react";
 import BackgroundCircles from "../components/BackgroundCircles";
-import { SoftwareData } from "../constants/index";
 import ProductCard from "../components/ProductCard";
 import Button from "../components/Button";
 
 const ProductPage = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/products")
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching products:", error));
+  }, []);
+
   return (
     <section className="max-w-6xl mx-auto min-h-screen px-4 py-8 ">
       <BackgroundCircles
         circles={[
           { top: "12vh", left: "20vw", size: 150, color: "bg-blue-400" },
           { top: "65vh", left: "45vw", size: 200, color: "bg-indigo-400" },
-
-          // deze 3 zitten bij "klantenervaringen" RAAAAHHHHHHHHH
           { top: "150vh", left: "15vw", size: 200, color: "bg-purple-400" },
           { top: "160vh", left: "40vw", size: 200, color: "bg-indigo-400" },
           { top: "180vh", left: "20vw", size: 150, color: "bg-blue-400" },
@@ -23,7 +30,7 @@ const ProductPage = () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
-        {SoftwareData.slice(0, 3).map((software) => (
+        {products.slice(0, 3).map((software) => (
           <ProductCard key={software.id} software={software} />
         ))}
       </div>

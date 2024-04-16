@@ -1,8 +1,18 @@
+import React, { useState, useEffect } from "react";
 import BackgroundCircles from "../components/BackgroundCircles";
-import { SoftwareData } from "../constants/index";
 import ProductCard from "../components/ProductCard";
+import Button from "../components/Button";
 
 const AppsPage = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/products")
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching products:", error));
+  }, []);
+
   return (
     <section className="max-w-6xl min-h-screen mx-auto mt-[10vh]">
       <BackgroundCircles
@@ -21,7 +31,7 @@ const AppsPage = () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
-        {SoftwareData.map((software) => (
+        {products.map((software) => (
           <ProductCard key={software.id} software={software} />
         ))}
       </div>

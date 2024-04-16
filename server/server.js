@@ -56,4 +56,36 @@ app.post("/register", (req, res) => {
   );
 });
 
+app.get("/products", (req, res) => {
+  db.all("SELECT * FROM SoftwareData", (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      return res.status(500).send({ error: "Internal Server Error" });
+    }
+    res.json(rows);
+  });
+});
+
+app.post("/addproduct", (req, res) => {
+  const title = req.body.title;
+  const description = req.body.description;
+  const image = req.body.image;
+  const dayprice = req.body.dayprice;
+  const weekprice = req.body.weekprice;
+  const monthprice = req.body.monthprice;
+  const lifetimeprice = req.body.lifetimeprice;
+
+  db.run(
+    `INSERT INTO SoftwareData (title, description, image, dayprice, weekprice, monthprice, lifetimeprice) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+    [title, description, image, dayprice, weekprice, monthprice, lifetimeprice],
+    (err, result) => {
+      if (err) {
+        console.error(err.message);
+        return res.status(500).send({ validation: false });
+      }
+      return res.status(200).send({ validation: true });
+    }
+  );
+});
+
 app.listen(3001, () => console.log("Listening at port 3001"));

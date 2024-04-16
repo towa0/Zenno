@@ -1,40 +1,86 @@
-import React, { useState } from "react";
-import { SoftwareData } from "../constants/index";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import AdminCard from "../components/AdminCards";
 
 const AdminPanel = () => {
-  const [softwares, setSoftwares] = useState(SoftwareData);
+  const [products, setProducts] = useState([]);
+  const [softwares, setSoftwares] = useState(products);
   const [newSoftware, setNewSoftware] = useState({
     title: "",
     description: "",
     image: "",
-    price: { day: "", week: "", month: "", lifetime: "" },
+    price: {
+      dayprice: 0,
+      weekprice: 0,
+      monthprice: 0,
+      lifetimeprice: 0,
+    },
   });
+
+  useEffect(() => {
+    fetch("http://localhost:3001/products")
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching products:", error));
+  }, []);
 
   const handleDelete = (id) => {
     setSoftwares(softwares.filter((software) => software.id !== id));
   };
 
-  const handleAdd = (event) => {
+  const handleAdd = async (event) => {
     event.preventDefault();
-    const newId = softwares.length
-      ? Math.max(...softwares.map((s) => s.id)) + 1
-      : 1;
-    const softwareToAdd = { ...newSoftware, id: newId };
-    setSoftwares([...softwares, softwareToAdd]);
-    setNewSoftware({
-      title: "",
-      description: "",
-      image: "",
-      price: { day: "", week: "", month: "", lifetime: "" },
-    });
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/addproduct",
+        newSoftware
+      );
+      if (response.status === 200) {
+        const formattedNewSoftware = {
+          ...newSoftware,
+          price: {
+            dayprice: parseFloat(newSoftware.price.day),
+            weekprice: parseFloat(newSoftware.price.week),
+            monthprice: parseFloat(newSoftware.price.month),
+            lifetimeprice: parseFloat(newSoftware.price.lifetime),
+          },
+        };
+        setSoftwares([...softwares, formattedNewSoftware]);
+        setNewSoftware({
+          title: "",
+          description: "",
+          image: "",
+          price: {
+            day: 0,
+            week: 0,
+            month: 0,
+            lifetime: 0,
+          },
+        });
+      } else {
+        console.error("Error adding product:", response.data);
+      }
+    } catch (error) {
+      console.error("Error adding product:", error);
+    }
   };
-
-  const handleEdit = (id, updatedSoftware) => {
-    const updatedSoftwares = softwares.map((software) =>
-      software.id === id ? { ...software, ...updatedSoftware } : software
-    );
-    setSoftwares(updatedSoftwares);
+  const handleEdit = async (id, updatedSoftware) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/products/${id}`,
+        updatedSoftware
+      );
+      if (response.status === 200) {
+        const updatedSoftwares = softwares.map((software) =>
+          software.id === id ? { ...software, ...updatedSoftware } : software
+        );
+        setSoftwares(updatedSoftwares);
+      } else {
+        console.error("Error editing product:", response.data);
+      }
+    } catch (error) {
+      console.error("Error editing product:", error);
+    }
   };
 
   const handleChange = (e) => {
@@ -104,12 +150,14 @@ const AdminPanel = () => {
         </form>
       </div>
       <div className="flex overflow-x-auto py-4">
-        {softwares.map((software) => (
+        {products.map((software) => (
           <AdminCard
             key={software.id}
             software={software}
             onDelete={() => handleDelete(software.id)}
-            onEdit={handleEdit}
+            onEdit={(updatedSoftware) =>
+              handleEdit(software.id, updatedSoftware)
+            }
           />
         ))}
       </div>

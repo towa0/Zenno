@@ -11,155 +11,155 @@ import PhpStorm from "../assets/PhpStorm.png";
 import Office from "../assets/Office.png";
 import EscapeFromTarkov from "../assets/EscapeFromTarkov.jpg";
 
-export const SoftwareData = [
-  {
-    id: 1,
-    title: "Adobe PhotoShop",
-    description:
-      "Toonaangevende software voor beeldbewerking en grafisch ontwerp, ideaal voor fotografen en ontwerpers.",
-    image: PhotoShop,
-    price: {
-      day: 10,
-      week: 35,
-      month: 120,
-      lifetime: 400,
-    },
-  },
-  {
-    id: 2,
-    title: "Adobe Illustrator",
-    description:
-      "Krachtige vectorgrafieksoftware voor het ontwerpen van logo's, iconen, tekeningen, typografie en complexe illustraties.",
-    image: Illustrator,
-    price: {
-      day: 10,
-      week: 35,
-      month: 120,
-      lifetime: 400,
-    },
-  },
-  {
-    id: 3,
-    title: "Adobe Lightroom",
-    description:
-      "Intuïtieve foto-editor en organizer met cloudopslag, perfect voor het verbeteren en organiseren van uw fotografie.",
-    image: Lightroom,
-    price: {
-      day: 10,
-      week: 35,
-      month: 120,
-      lifetime: 400,
-    },
-  },
-  {
-    id: 4,
-    title: "Adobe Premiere Pro",
-    description:
-      "Professionele videobewerkingssoftware die een breed scala aan bewerkingstools biedt voor het bewerken van films, televisie en video's op het web.",
-    image: PremierePro,
-    price: {
-      day: 10,
-      week: 35,
-      month: 120,
-      lifetime: 400,
-    },
-  },
-  {
-    id: 5,
-    title: "Adobe After Effects",
-    description:
-      "Geavanceerde digitale visuele effecten, motion graphics, en compositing software, gebruikt in het postproductieproces van filmmaken.",
-    image: AfterEffects,
-    price: {
-      day: 10,
-      week: 35,
-      month: 120,
-      lifetime: 400,
-    },
-  },
-  {
-    id: 6,
-    title: "Adobe InDesign",
-    description:
-      "Industriestandaard uitgeefsoftware die gebruikt wordt om posters, flyers, brochures, tijdschriften, kranten, en boeken te ontwerpen.",
-    image: InDesign,
-    price: {
-      day: 10,
-      week: 35,
-      month: 120,
-      lifetime: 400,
-    },
-  },
-  {
-    id: 7,
-    title: "Adobe Audition",
-    description:
-      "Professionele audio-werkstation voor het mixen, afwerken en bewerken van geluid.",
-    image: Audition,
-    price: {
-      day: 10,
-      week: 35,
-      month: 120,
-      lifetime: 400,
-    },
-  },
-  {
-    id: 8,
-    title: "Pycharm",
-    description:
-      "Een geïntegreerde ontwikkelomgeving voor Python met code-analysefaciliteiten en ondersteuning voor webontwikkeling met Django.",
-    image: Pycharm,
-    price: {
-      month: 25,
-      lifetime: 250,
-    },
-  },
-  {
-    id: 9,
-    title: "WebStorm",
-    description:
-      "Krachtige IDE voor moderne JavaScript-ontwikkeling, ondersteunt frameworks zoals React, Angular en Vue.js.",
-    image: WebStorm,
-    price: {
-      month: 16,
-      lifetime: 160,
-    },
-  },
-  {
-    id: 10,
-    title: "PhpStorm",
-    description:
-      "Geavanceerde IDE voor PHP-ontwikkelaars, inclusief ondersteuning voor alle PHP-tools en front-end technologieën.",
-    image: PhpStorm,
-    price: {
-      month: 25,
-      lifetime: 250,
-    },
-  },
-  {
-    id: 11,
-    title: "Office 365",
-    description:
-      "Een suite van kantoortoepassingen, inclusief Word, Excel, PowerPoint, en meer, met krachtige cloudservices en beveiliging.",
-    image: Office,
-    price: {
-      month: 10,
-      lifetime: 100,
-    },
-  },
-  {
-    id: 12,
-    title: "Escape From Tarkov",
-    description:
-      "Een hardcore en realistische online first-person actie-RPG/Simulator met MMO-functies en een verhaalgedreven walkthrough.",
-    image: EscapeFromTarkov,
-    price: {
-      StandardEdition: 52,
-      LeftBehindEdition: 86,
-      PrepareforEscapeEdition: 115,
-    },
-  },
-];
+// export const SoftwareData = [
+//   {
+//     id: 1,
+//     title: "Adobe PhotoShop",
+//     description:
+//       "Toonaangevende software voor beeldbewerking en grafisch ontwerp, ideaal voor fotografen en ontwerpers.",
+//     image: PhotoShop,
+//     price: {
+//       day: 10,
+//       week: 35,
+//       month: 120,
+//       lifetime: 400,
+//     },
+//   },
+//   {
+//     id: 2,
+//     title: "Adobe Illustrator",
+//     description:
+//       "Krachtige vectorgrafieksoftware voor het ontwerpen van logo's, iconen, tekeningen, typografie en complexe illustraties.",
+//     image: Illustrator,
+//     price: {
+//       day: 10,
+//       week: 35,
+//       month: 120,
+//       lifetime: 400,
+//     },
+//   },
+//   {
+//     id: 3,
+//     title: "Adobe Lightroom",
+//     description:
+//       "Intuïtieve foto-editor en organizer met cloudopslag, perfect voor het verbeteren en organiseren van uw fotografie.",
+//     image: Lightroom,
+//     price: {
+//       day: 10,
+//       week: 35,
+//       month: 120,
+//       lifetime: 400,
+//     },
+//   },
+//   {
+//     id: 4,
+//     title: "Adobe Premiere Pro",
+//     description:
+//       "Professionele videobewerkingssoftware die een breed scala aan bewerkingstools biedt voor het bewerken van films, televisie en video's op het web.",
+//     image: PremierePro,
+//     price: {
+//       day: 10,
+//       week: 35,
+//       month: 120,
+//       lifetime: 400,
+//     },
+//   },
+//   {
+//     id: 5,
+//     title: "Adobe After Effects",
+//     description:
+//       "Geavanceerde digitale visuele effecten, motion graphics, en compositing software, gebruikt in het postproductieproces van filmmaken.",
+//     image: AfterEffects,
+//     price: {
+//       day: 10,
+//       week: 35,
+//       month: 120,
+//       lifetime: 400,
+//     },
+//   },
+//   {
+//     id: 6,
+//     title: "Adobe InDesign",
+//     description:
+//       "Industriestandaard uitgeefsoftware die gebruikt wordt om posters, flyers, brochures, tijdschriften, kranten, en boeken te ontwerpen.",
+//     image: InDesign,
+//     price: {
+//       day: 10,
+//       week: 35,
+//       month: 120,
+//       lifetime: 400,
+//     },
+//   },
+//   {
+//     id: 7,
+//     title: "Adobe Audition",
+//     description:
+//       "Professionele audio-werkstation voor het mixen, afwerken en bewerken van geluid.",
+//     image: Audition,
+//     price: {
+//       day: 10,
+//       week: 35,
+//       month: 120,
+//       lifetime: 400,
+//     },
+//   },
+//   {
+//     id: 8,
+//     title: "Pycharm",
+//     description:
+//       "Een geïntegreerde ontwikkelomgeving voor Python met code-analysefaciliteiten en ondersteuning voor webontwikkeling met Django.",
+//     image: Pycharm,
+//     price: {
+//       month: 25,
+//       lifetime: 250,
+//     },
+//   },
+//   {
+//     id: 9,
+//     title: "WebStorm",
+//     description:
+//       "Krachtige IDE voor moderne JavaScript-ontwikkeling, ondersteunt frameworks zoals React, Angular en Vue.js.",
+//     image: WebStorm,
+//     price: {
+//       month: 16,
+//       lifetime: 160,
+//     },
+//   },
+//   {
+//     id: 10,
+//     title: "PhpStorm",
+//     description:
+//       "Geavanceerde IDE voor PHP-ontwikkelaars, inclusief ondersteuning voor alle PHP-tools en front-end technologieën.",
+//     image: PhpStorm,
+//     price: {
+//       month: 25,
+//       lifetime: 250,
+//     },
+//   },
+//   {
+//     id: 11,
+//     title: "Office 365",
+//     description:
+//       "Een suite van kantoortoepassingen, inclusief Word, Excel, PowerPoint, en meer, met krachtige cloudservices en beveiliging.",
+//     image: Office,
+//     price: {
+//       month: 10,
+//       lifetime: 100,
+//     },
+//   },
+//   {
+//     id: 12,
+//     title: "Escape From Tarkov",
+//     description:
+//       "Een hardcore en realistische online first-person actie-RPG/Simulator met MMO-functies en een verhaalgedreven walkthrough.",
+//     image: EscapeFromTarkov,
+//     price: {
+//       StandardEdition: 52,
+//       LeftBehindEdition: 86,
+//       PrepareforEscapeEdition: 115,
+//     },
+//   },
+// ];
 
 export const testimonials = [
   {

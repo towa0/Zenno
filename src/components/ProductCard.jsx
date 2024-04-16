@@ -17,16 +17,30 @@ const ProductCard = ({ software }) => {
           {software.description}
         </p>
         <ul className="mt-4">
-          {Object.entries(software.price).map(([key, value]) => (
-            <li key={key} className="flex justify-between items-center py-1">
-              <span className="text-md font-medium text-mainDark">
-                {`${key.charAt(0).toUpperCase() + key.slice(1)}`}
-              </span>
-              <span className="text-lg font-bold text-mainBlue">
-                {`€${value},-`}
-              </span>
-            </li>
-          ))}
+          <li className="flex justify-between items-center py-1">
+            <span className="text-md font-medium text-mainDark">Day:</span>
+            <span className="text-lg font-bold text-mainBlue">
+              {`€${software.dayprice},-`}
+            </span>
+          </li>
+          <li className="flex justify-between items-center py-1">
+            <span className="text-md font-medium text-mainDark">Week:</span>
+            <span className="text-lg font-bold text-mainBlue">
+              {`€${software.weekprice},-`}
+            </span>
+          </li>
+          <li className="flex justify-between items-center py-1">
+            <span className="text-md font-medium text-mainDark">Month:</span>
+            <span className="text-lg font-bold text-mainBlue">
+              {`€${software.monthprice},-`}
+            </span>
+          </li>
+          <li className="flex justify-between items-center py-1">
+            <span className="text-md font-medium text-mainDark">Lifetime:</span>
+            <span className="text-lg font-bold text-mainBlue">
+              {`€${software.lifetimeprice},-`}
+            </span>
+          </li>
         </ul>
       </div>
       <div className="pt-8">

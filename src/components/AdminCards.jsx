@@ -21,7 +21,7 @@ const AdminCard = ({ software, onDelete, onEdit }) => {
   const toggleEdit = () => {
     setIsEditing(!isEditing);
     if (isEditing) {
-      setEditData({ ...software }); 
+      setEditData({ ...software });
     }
   };
 
@@ -48,20 +48,52 @@ const AdminCard = ({ software, onDelete, onEdit }) => {
               onChange={handleEditChange}
               name="image"
             />
-            {Object.keys(software.price).map((key) => (
-              <input
-                key={key}
-                className="flex justify-between items-center py-1"
-                value={editData.price[key]}
-                onChange={(e) =>
-                  setEditData({
-                    ...editData,
-                    price: { ...editData.price, [key]: e.target.value },
-                  })
-                }
-                name={`price.${key}`}
-              />
-            ))}
+            <ul className="mt-4">
+              <li className="flex justify-between items-center py-1">
+                <span className="text-md font-medium text-mainDark">Day:</span>
+                <input
+                  className="text-lg font-bold text-mainBlue"
+                  value={editData.dayprice}
+                  onChange={handleEditChange}
+                  name="dayprice"
+                />
+                <span className="text-lg font-bold text-mainBlue">,-</span>
+              </li>
+              <li className="flex justify-between items-center py-1">
+                <span className="text-md font-medium text-mainDark">Week:</span>
+                <input
+                  className="text-lg font-bold text-mainBlue"
+                  value={editData.weekprice}
+                  onChange={handleEditChange}
+                  name="weekprice"
+                />
+                <span className="text-lg font-bold text-mainBlue">,-</span>
+              </li>
+              <li className="flex justify-between items-center py-1">
+                <span className="text-md font-medium text-mainDark">
+                  Month:
+                </span>
+                <input
+                  className="text-lg font-bold text-mainBlue"
+                  value={editData.monthprice}
+                  onChange={handleEditChange}
+                  name="monthprice"
+                />
+                <span className="text-lg font-bold text-mainBlue">,-</span>
+              </li>
+              <li className="flex justify-between items-center py-1">
+                <span className="text-md font-medium text-mainDark">
+                  Lifetime:
+                </span>
+                <input
+                  className="text-lg font-bold text-mainBlue"
+                  value={editData.lifetimeprice}
+                  onChange={handleEditChange}
+                  name="lifetimeprice"
+                />
+                <span className="text-lg font-bold text-mainBlue">,-</span>
+              </li>
+            </ul>
             <Button label="Save" onClick={handleSave} />
             <Button label="Cancel" onClick={toggleEdit} />
           </>
@@ -79,19 +111,34 @@ const AdminCard = ({ software, onDelete, onEdit }) => {
               {software.description}
             </p>
             <ul className="mt-4">
-              {Object.entries(software.price).map(([key, value]) => (
-                <li
-                  key={key}
-                  className="flex justify-between items-center py-1"
-                >
-                  <span className="text-sm font-medium text-mainDark">
-                    {`${key.charAt(0).toUpperCase() + key.slice(1)}`}
-                  </span>
-                  <span className="text-sm font-bold text-mainBlue">
-                    {`€${value},-`}
-                  </span>
-                </li>
-              ))}
+              <li className="flex justify-between items-center py-1">
+                <span className="text-md font-medium text-mainDark">Day:</span>
+                <span className="text-lg font-bold text-mainBlue">
+                  {`€${software.dayprice},-`}
+                </span>
+              </li>
+              <li className="flex justify-between items-center py-1">
+                <span className="text-md font-medium text-mainDark">Week:</span>
+                <span className="text-lg font-bold text-mainBlue">
+                  {`€${software.weekprice},-`}
+                </span>
+              </li>
+              <li className="flex justify-between items-center py-1">
+                <span className="text-md font-medium text-mainDark">
+                  Month:
+                </span>
+                <span className="text-lg font-bold text-mainBlue">
+                  {`€${software.monthprice},-`}
+                </span>
+              </li>
+              <li className="flex justify-between items-center py-1">
+                <span className="text-md font-medium text-mainDark">
+                  Lifetime:
+                </span>
+                <span className="text-lg font-bold text-mainBlue">
+                  {`€${software.lifetimeprice},-`}
+                </span>
+              </li>
             </ul>
             <button
               className="bg-red-500 hover:bg-red-500/70 text-white font-bold duration-200 px-4 py-2 rounded-lg"
