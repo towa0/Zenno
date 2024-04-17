@@ -67,13 +67,8 @@ app.get("/products", (req, res) => {
 });
 
 app.post("/addproduct", (req, res) => {
-  const title = req.body.title;
-  const description = req.body.description;
-  const image = req.body.image;
-  const dayprice = req.body.dayprice;
-  const weekprice = req.body.weekprice;
-  const monthprice = req.body.monthprice;
-  const lifetimeprice = req.body.lifetimeprice;
+  const { title, description, image, price } = req.body;
+  const { dayprice, weekprice, monthprice, lifetimeprice } = price;
 
   db.run(
     `INSERT INTO SoftwareData (title, description, image, dayprice, weekprice, monthprice, lifetimeprice) VALUES (?, ?, ?, ?, ?, ?, ?)`,

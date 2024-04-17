@@ -64,6 +64,7 @@ const AdminPanel = () => {
       console.error("Error adding product:", error);
     }
   };
+
   const handleEdit = async (id, updatedSoftware) => {
     try {
       const response = await axios.put(
@@ -134,7 +135,6 @@ const AdminPanel = () => {
                 key={key}
                 type="number"
                 name={`price.${key}`}
-                value={newSoftware.price[key]}
                 onChange={handleChange}
                 placeholder={`Prijs per ${key}`}
                 className="w-full p-2 border border-gray-300 rounded-lg"

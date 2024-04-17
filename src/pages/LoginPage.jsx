@@ -23,7 +23,6 @@ const LoginPage = () => {
           login(res.data.user);
           if (res.data.user.functie === "admin") {
             navigate("/admin");
-            console.log("admin");
           } else {
             navigate("/");
           }

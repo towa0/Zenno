@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BackgroundCircles from "../components/BackgroundCircles";
 import ProductCard from "../components/ProductCard";
-import Button from "../components/Button";
 
 const AppsPage = () => {
   const [products, setProducts] = useState([]);
