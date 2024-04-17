@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrFormClose } from "react-icons/gr";
 import Header from "./Header";
@@ -11,6 +11,10 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+  }, [menuOpen]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -85,8 +89,8 @@ const Navbar = () => {
       </div>
 
       {menuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 transform transition-transform ease-in duration-300">
-          <div className="z-60 h-[100vh] pt-4 pl-4 space-y-8 text-mainBlue">
+        <div className="lg:hidden fixed inset-0 z-50 bg-white transform transition-transform ease-in duration-300">
+          <div className="h-[100vh] pt-4 pl-4 space-y-8 text-mainBlue">
             <div className="flex justify-end">
               <button className=" focus:outline-none" onClick={toggleMenu}>
                 <GrFormClose size={50} className="text-mainBlue mr-10 " />

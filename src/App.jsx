@@ -10,6 +10,8 @@ import AdminPanel from "./pages/AdminPanel.jsx";
 import ScrollToTop from "./constants/ScrollToTop.js";
 import { AuthProvider } from "./backend/AuthProvider.jsx";
 import PrivateRoute from "./backend/PrivateRoute.jsx";
+import AboutUs from "./pages/AboutUs.jsx";
+import ContactUs from "./pages/ContactUs.jsx";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/apps" element={<AppsPage />} />
           <Route path="/*" element={<ErrorPage />} />
+          <Route path="/over-ons" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
           <Route
             path="/admin"
             element={<PrivateRoute element={AdminPanel} />}
