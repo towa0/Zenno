@@ -83,4 +83,16 @@ app.post("/addproduct", (req, res) => {
   );
 });
 
+app.delete("/products/:id", (req, res) => {
+  const id = req.params.id;
+
+  db.run(`DELETE FROM SoftwareData WHERE id = ?`, [id], (err) => {
+    if (err) {
+      console.error(err.message);
+      return res.status(500).send({ validation: false });
+    }
+    return res.status(200).send({ validation: true });
+  });
+});
+
 app.listen(3001, () => console.log("Listening at port 3001"));

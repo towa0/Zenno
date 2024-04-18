@@ -5,6 +5,7 @@ import AdminCard from "../components/AdminCards";
 const AdminPanel = () => {
   const [products, setProducts] = useState([]);
   const [softwares, setSoftwares] = useState(products);
+  const [notification, setNotification] = useState(null);
   const [newSoftware, setNewSoftware] = useState({
     title: "",
     description: "",
@@ -24,8 +25,23 @@ const AdminPanel = () => {
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
 
-  const handleDelete = (id) => {
-    setSoftwares(softwares.filter((software) => software.id !== id));
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3001/products/${id}`
+      );
+      if (response.status === 200) {
+        setNotification("Product succesvol verwijderd!");
+        setTimeout(() => {
+          setNotification(null);
+        }, 3000);
+        setProducts(products.filter((product) => product.id !== id));
+      } else {
+        console.error("Error deleting product:", response.data);
+      }
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
   };
 
   const handleAdd = async (event) => {
@@ -36,6 +52,10 @@ const AdminPanel = () => {
         newSoftware
       );
       if (response.status === 200) {
+        setNotification("Product succesvol toegevoegd!");
+        setTimeout(() => {
+          setNotification(null);
+        }, 3000);
         const formattedNewSoftware = {
           ...newSoftware,
           price: {
@@ -44,6 +64,7 @@ const AdminPanel = () => {
             monthprice: parseFloat(newSoftware.price.month),
             lifetimeprice: parseFloat(newSoftware.price.lifetime),
           },
+          id: response.data.softwareid,
         };
         setSoftwares([...softwares, formattedNewSoftware]);
         setNewSoftware({
@@ -99,6 +120,7 @@ const AdminPanel = () => {
 
   return (
     <div className="max-w-6xl min-h-screen mx-auto px-4 py-8">
+      {notification && <div className="notification">{notification}</div>}
       <div className="w-full p-8">
         <h1 className="text-3xl font-bold text-mainDark mb-4">
           Voeg software toe
