@@ -67,7 +67,8 @@ app.get("/products", (req, res) => {
 });
 
 app.post("/addproduct", (req, res) => {
-  const { title, description, image, price } = req.body;
+  const image = "/src/assets/" + req.body.image;
+  const { title, description, price } = req.body;
   const { dayprice, weekprice, monthprice, lifetimeprice } = price;
 
   db.run(
@@ -93,6 +94,32 @@ app.delete("/products/:id", (req, res) => {
     }
     return res.status(200).send({ validation: true });
   });
+});
+
+app.put("/products/:id", (req, res) => {
+  const id = req.params.id;
+  const updatedSoftware = req.body;
+
+  db.run(
+    `UPDATE SoftwareData SET title = ?, description = ?, image = ?, dayprice = ?, weekprice = ?, monthprice = ?, lifetimeprice = ? WHERE id = ?`,
+    [
+      updatedSoftware.title,
+      updatedSoftware.description,
+      updatedSoftware.image,
+      updatedSoftware.dayprice,
+      updatedSoftware.weekprice,
+      updatedSoftware.monthprice,
+      updatedSoftware.lifetimeprice,
+      id,
+    ],
+    (err) => {
+      if (err) {
+        console.error(err.message);
+        return res.status(500).send({ validation: false });
+      }
+      return res.status(200).send({ validation: true });
+    }
+  );
 });
 
 app.listen(3001, () => console.log("Listening at port 3001"));

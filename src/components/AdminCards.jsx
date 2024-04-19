@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import axios from "axios";
 
 const AdminCard = ({ software, onDelete, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -13,7 +14,7 @@ const AdminCard = ({ software, onDelete, onEdit }) => {
     }));
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     onEdit(editData);
     setIsEditing(false);
   };
@@ -56,6 +57,7 @@ const AdminCard = ({ software, onDelete, onEdit }) => {
                   value={editData.dayprice}
                   onChange={handleEditChange}
                   name="dayprice"
+                  type="number"
                 />
                 <span className="text-lg font-bold text-mainBlue">,-</span>
               </li>
@@ -66,6 +68,7 @@ const AdminCard = ({ software, onDelete, onEdit }) => {
                   value={editData.weekprice}
                   onChange={handleEditChange}
                   name="weekprice"
+                  type="number"
                 />
                 <span className="text-lg font-bold text-mainBlue">,-</span>
               </li>
@@ -78,6 +81,7 @@ const AdminCard = ({ software, onDelete, onEdit }) => {
                   value={editData.monthprice}
                   onChange={handleEditChange}
                   name="monthprice"
+                  type="number"
                 />
                 <span className="text-lg font-bold text-mainBlue">,-</span>
               </li>
@@ -90,12 +94,23 @@ const AdminCard = ({ software, onDelete, onEdit }) => {
                   value={editData.lifetimeprice}
                   onChange={handleEditChange}
                   name="lifetimeprice"
+                  type="number"
                 />
                 <span className="text-lg font-bold text-mainBlue">,-</span>
               </li>
             </ul>
-            <Button label="Save" onClick={handleSave} />
-            <Button label="Cancel" onClick={toggleEdit} />
+            <button
+              onClick={handleSave}
+              className="text-mainBlue border-mainBlue hover:bg-mainBlue hover:text-white border-2 rounded-xl font-bold duration-200 px-4 py-2 "
+            >
+              Save
+            </button>
+            <button
+              onClick={toggleEdit}
+              className="text-mainBlue border-mainBlue hover:bg-mainBlue hover:text-white border-2 rounded-xl font-bold duration-200 px-4 py-2 "
+            >
+              Cancel
+            </button>
           </>
         ) : (
           <>

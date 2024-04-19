@@ -52,21 +52,15 @@ const AdminPanel = () => {
         newSoftware
       );
       if (response.status === 200) {
-        setNotification("Product succesvol toegevoegd!");
-        setTimeout(() => {
-          setNotification(null);
-        }, 3000);
-        const formattedNewSoftware = {
-          ...newSoftware,
-          price: {
-            dayprice: parseFloat(newSoftware.price.day),
-            weekprice: parseFloat(newSoftware.price.week),
-            monthprice: parseFloat(newSoftware.price.month),
-            lifetimeprice: parseFloat(newSoftware.price.lifetime),
-          },
-          id: response.data.softwareid,
-        };
-        setSoftwares([...softwares, formattedNewSoftware]);
+        const updatedProductsResponse = await axios.get(
+          "http://localhost:3001/products"
+        );
+        const updatedProducts = updatedProductsResponse.data;
+
+        setProducts(updatedProducts);
+
+        setNotification("Product successfully added!");
+
         setNewSoftware({
           title: "",
           description: "",
@@ -92,11 +86,16 @@ const AdminPanel = () => {
         `http://localhost:3001/products/${id}`,
         updatedSoftware
       );
+
       if (response.status === 200) {
-        const updatedSoftwares = softwares.map((software) =>
-          software.id === id ? { ...software, ...updatedSoftware } : software
+        const updatedProductsResponse = await axios.get(
+          "http://localhost:3001/products"
         );
-        setSoftwares(updatedSoftwares);
+        const updatedProducts = updatedProductsResponse.data;
+
+        setProducts(updatedProducts);
+
+        setNotification("Product successfully edited!");
       } else {
         console.error("Error editing product:", response.data);
       }
