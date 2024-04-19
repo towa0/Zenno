@@ -18,7 +18,7 @@ const landingPage = () => {
           <img
             src={landingPageImage}
             alt="ZennoLandingPage"
-            className="landing-image w-full rounded-lg shadow-lg"
+            className="w-full rounded-lg shadow-lg"
           />
         </div>
         <div className="max-w-screen-xl flex ml-[4vw] items-center mb-16">
@@ -29,11 +29,11 @@ const landingPage = () => {
             <p className="text-md my-8 text-gray-500 sm:w-[25vw]">
               Bij Zenno geloven we dat de juiste software jouw{" "}
               <strong>bedrijfsvoering kan transformeren.</strong> Ontdek ons
-              uitgebreide assortiment softwareproducten, ontworpen om jouw
+              uitgebreide assortiment softwareproducten, ontworpen om jouw{" "}
               <strong>productiviteit te verhogen</strong> en{" "}
               <strong>bedrijfsprocessen te stroomlijnen.</strong>
             </p>
-            <Button to="/log-in" label="Bekijk software" primary={true} />
+            <Button to="/apps" label="Bekijk software" primary={true} />
           </div>
           <div className="hidden sm:flex">
             <img

@@ -12,6 +12,7 @@ const AboutUs = () => {
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
+
   return (
     <section className="max-w-3xl min-h-screen mx-auto prose lg:prose-md mt-[10vh] ">
       <BackgroundCircles

@@ -36,10 +36,12 @@ const KlantenreviewsPage = () => {
           </div>
         </div>
         {visibleTestimonials < testimonials.length && (
-          <button onClick={loadMoreTestimonials}>
-            <Button label="Toon Meer" primary={false} />
+          <button
+            onClick={loadMoreTestimonials}
+            className="border-2 rounded-xl font-bold duration-200 px-4 py-2 text-mainBlue border-mainBlue hover:bg-mainBlue hover:text-white"
+          >
+            Toon Meer
           </button>
-          // fix deze dogshit button aub
         )}
       </div>
       <Questions />
