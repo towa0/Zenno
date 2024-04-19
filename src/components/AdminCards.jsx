@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Button from "./Button";
-import axios from "axios";
 
 const AdminCard = ({ software, onDelete, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false);

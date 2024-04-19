@@ -2,15 +2,22 @@ import React, { useState, useEffect } from "react";
 import BackgroundCircles from "../components/BackgroundCircles";
 import ProductCard from "../components/ProductCard";
 import Button from "../components/Button";
+import SkeletonCard from "../components/SkeletonCard";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:3001/products")
       .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error("Error fetching products:", error));
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   }, []);
 
   return (
@@ -30,9 +37,15 @@ const ProductPage = () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
-        {products.slice(0, 3).map((software) => (
-          <ProductCard key={software.id} software={software} />
-        ))}
+        {loading
+          ? Array.from({ length: 3 }).map((_, index) => (
+              <SkeletonCard key={index} />
+            ))
+          : products
+              .slice(0, 3)
+              .map((software) => (
+                <ProductCard key={software.id} software={software} />
+              ))}
       </div>
       <div className="pt-8 ">
         <Button to="/apps" label="Zie meer" primary={false} />

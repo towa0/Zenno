@@ -35,7 +35,7 @@ const Navbar = () => {
       : "font-bold text-mainDark hover:text-mainBlue duration-200";
 
   return (
-    <nav className="max-w-6xl mx-auto h-[10vh] flex items-center justify-between px-4 lg:px-10">
+    <nav className="max-w-6xl mx-auto h-[10vh] flex items-center justify-center px-4 lg:px-10">
       <img
         className="mr-3"
         src={navLogo}
