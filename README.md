@@ -1,4 +1,4 @@
-# Zenno
+# 🔵 Zenno
 
 Welkom in de GitHub-repository van Zenno! Dit project is onderdeel van een schoolproject dat gericht is op het creëren van een webplatform voor Zenno, een bedrijf dat gespecialiseerd is in het verkopen van geavanceerde softwareoplossingen zoals Photoshop, Premiere Pro en Illustrator.
 
@@ -28,12 +28,18 @@ Om dit project lokaal aan de praat te krijgen:
 
 1. Clone de repository:
    ```bash
-   git clone https://github.com/yourusername/zenno.git
+   git clone https://github.com/towa0/zenno.git
 
-2. Installeer de afhankelijkheden:
+2. Installeer de dependencies:
    ```bash
    cd zenno
    npm install
+
+3. Installeer de server dependencies:
+   ```bash
+   cd server
+   npm install
+   node server.js
 
 ##  Bijdragen
 
