@@ -44,7 +44,11 @@ const ProductCard = ({ software }) => {
         </ul>
       </div>
       <div className="pt-8">
-        <Button to="/#" label="Koop nu" primary={true} />
+        <Button
+          to={`/buyProduct/${software.id}`}
+          label="Koop nu"
+          primary={true}
+        />
       </div>
     </div>
   );

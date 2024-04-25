@@ -122,4 +122,15 @@ app.put("/products/:id", (req, res) => {
   );
 });
 
+app.get("/buyProduct/:id", (req, res) => {
+  const id = req.params.id;
+  db.all("SELECT * FROM SoftwareData WHERE id = ?", [id], (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      return res.status(500).send({ error: "Internal Server Error" });
+    }
+    res.json(rows);
+  });
+});
+
 app.listen(3001, () => console.log("Listening at port 3001"));

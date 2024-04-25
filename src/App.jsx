@@ -13,6 +13,7 @@ import PrivateRoute from "./backend/PrivateRoute.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
+import ProductDetailPage from "./pages/ProductDetailPage.jsx";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/log-in" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/apps" element={<AppsPage />} />
+          <Route path="/buyproduct/:id" element={<ProductDetailPage />} />
           <Route path="/*" element={<ErrorPage />} />
           <Route path="/over-ons" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
