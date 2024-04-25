@@ -3,7 +3,8 @@ import BackgroundCircles from "../components/BackgroundCircles";
 const ContactUs = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted");
+    // console.log("Form submitted");
+    // todo
   };
 
   return (
@@ -35,6 +36,7 @@ const ContactUs = () => {
               id="name"
               type="text"
               required
+              placeholder="Uw naam"
             />
           </div>
         </div>
@@ -51,6 +53,7 @@ const ContactUs = () => {
               id="email"
               type="email"
               required
+              placeholder="iemand@voorbeeld.com"
             />
           </div>
         </div>
@@ -66,6 +69,7 @@ const ContactUs = () => {
               className="w-full p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
               id="message"
               required
+              placeholder="Uw bericht"
             ></textarea>
           </div>
         </div>

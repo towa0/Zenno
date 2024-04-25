@@ -35,7 +35,7 @@ const Navbar = () => {
       : "font-bold text-mainDark hover:text-mainBlue duration-200";
 
   return (
-    <nav className="max-w-6xl mx-auto h-[10vh] flex items-center justify-center px-4 lg:px-10">
+    <nav className="max-w-6xl mx-auto h-[10vh] flex items-center px-4 lg:px-10">
       <img
         className="mr-3"
         src={navLogo}
@@ -65,7 +65,7 @@ const Navbar = () => {
           </NavLink>
         )}
       </div>
-      <div className="hidden sm:flex items-center space-x-4">
+      <div className="hidden ml-auto sm:flex items-center space-x-4">
         {!user ? (
           <>
             <Button to="/log-in" label="Log in" primary={true} />
@@ -83,13 +83,12 @@ const Navbar = () => {
         )}
       </div>
 
-      <div className="lg:hidden w-full flex items-center justify-end">
-        <button className="focus:outline-none" onClick={toggleMenu}>
-          {menuOpen ? (
-            <GrFormClose size={40} />
-          ) : (
-            <GiHamburgerMenu size={35} className="text-mainBlue mr-14" />
-          )}
+      <div className="sm:hidden w-full flex items-center justify-end">
+        <button
+          className="focus:outline-none text-mainBlue"
+          onClick={toggleMenu}
+        >
+          {menuOpen ? <GrFormClose size={35} /> : <GiHamburgerMenu size={35} />}
         </button>
       </div>
 
@@ -98,7 +97,7 @@ const Navbar = () => {
           <div className="h-[100vh] pt-4 pl-4 space-y-8 text-mainBlue">
             <div className="flex justify-end">
               <button className=" focus:outline-none" onClick={toggleMenu}>
-                <GrFormClose size={50} className="text-mainBlue mr-10 " />
+                <GrFormClose size={35} className="text-mainBlue mr-5 " />
               </button>
             </div>
             <NavLink

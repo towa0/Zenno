@@ -9,7 +9,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,13 +27,13 @@ const LoginPage = () => {
         } else {
           navigate("/");
         }
-        setErrorMessage(""); // Clear error message on successful login
+        setErrorMessage("");
       } else {
-        setErrorMessage("Ongeldige gebruikersnaam of wachtwoord."); // Set specific error message
+        setErrorMessage("Ongeldige gebruikersnaam of wachtwoord.");
       }
     } catch (error) {
       console.error("Error:", error);
-      setErrorMessage("Er is een fout opgetreden. Probeer het later opnieuw."); // Generic error message
+      setErrorMessage("Ongeldige gebruikersnaam of wachtwoord.");
     }
   };
 

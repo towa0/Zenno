@@ -21,8 +21,8 @@ const landingPage = () => {
             className="w-full rounded-lg shadow-lg"
           />
         </div>
-        <div className="max-w-screen-xl flex ml-[4vw] items-center mb-16">
-          <div className="text-center sm:text-left pr-20">
+        <div className="max-w-screen-xl flex sm:ml-[4vw] items-center mb-16">
+          <div className="text-center sm:text-left sm:pr-20">
             <h1 className="text-5xl font-bold text-mainDark">
               Welkom bij Zen<span className="text-mainBlue">no.</span>
             </h1>
