@@ -21,7 +21,7 @@ const BackgroundCircles = ({ circles }) => {
             left: `${circle.left}`,
             width: `${circle.size}px`,
             height: `${circle.size}px`,
-            animationDuration: `${4 + Math.random() * 2}s`, // Between 4 and 6 seconds
+            animationDuration: `${4 + Math.random() * 2}s`,
             animationDelay: `${Math.random() * 2}s`,
           }}
         />

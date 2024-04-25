@@ -26,9 +26,9 @@ const ProductPage = () => {
         circles={[
           { top: "12vh", left: "20vw", size: 150, color: "bg-blue-400" },
           { top: "65vh", left: "45vw", size: 200, color: "bg-indigo-400" },
-          { top: "150vh", left: "15vw", size: 200, color: "bg-purple-400" },
-          { top: "160vh", left: "40vw", size: 200, color: "bg-indigo-400" },
-          { top: "180vh", left: "20vw", size: 150, color: "bg-blue-400" },
+          { top: "150vh", left: "15vw", size: 150, color: "bg-purple-400" },
+          { top: "160vh", left: "40vw", size: 150, color: "bg-indigo-400" },
+          { top: "200vh", left: "32vw", size: 150, color: "bg-blue-400" },
         ]}
       />
       <div className="mb-20 text-center">

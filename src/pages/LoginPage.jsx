@@ -9,31 +9,34 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState(""); // State for error message
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    axios
-      .post("http://localhost:3001/login", {
-        username: username,
-        password: password,
-      })
-      .then((res) => {
-        if (res.data.validation) {
-          login(res.data.user);
-          if (res.data.user.functie === "admin") {
-            navigate("/admin");
-          } else {
-            navigate("/");
-          }
-        } else {
-          alert("Your password is not correct. Please try again.");
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    try {
+      const response = await axios.post("http://localhost:3001/login", {
+        username,
+        password,
       });
+
+      if (response.data.validation) {
+        login(response.data.user);
+        if (response.data.user.functie === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
+        setErrorMessage(""); // Clear error message on successful login
+      } else {
+        setErrorMessage("Ongeldige gebruikersnaam of wachtwoord."); // Set specific error message
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setErrorMessage("Er is een fout opgetreden. Probeer het later opnieuw."); // Generic error message
+    }
   };
+
   return (
     <section className="max-w-6xl mx-auto min-h-screen">
       <div className="flex justify-center mt-[15vh] items-center">
@@ -55,7 +58,9 @@ const LoginPage = () => {
                 name="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
+                className={`w-full p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue ${
+                  errorMessage ? "border-red-500" : ""
+                }`}
                 required
               />
             </div>
@@ -72,10 +77,15 @@ const LoginPage = () => {
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue"
+                className={`w-full mb-4 p-2 border border-gray-300 rounded-lg focus:ring-mainBlue focus:border-mainBlue ${
+                  errorMessage ? "border-red-500" : ""
+                }`}
                 required
               />
             </div>
+            {errorMessage && (
+              <p className="text-red-500 text-sm font-medium">{errorMessage}</p>
+            )}
             <p>
               Geen account? Registreer{" "}
               <span className="text-mainBlue underline">

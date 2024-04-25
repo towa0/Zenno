@@ -12,6 +12,7 @@ import { AuthProvider } from "./backend/AuthProvider.jsx";
 import PrivateRoute from "./backend/PrivateRoute.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
+import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
           <Route path="/*" element={<ErrorPage />} />
           <Route path="/over-ons" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
           <Route
             path="/admin"
             element={<PrivateRoute element={AdminPanel} />}

@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-
 import { testimonials } from "../constants/index";
-import Button from "../components/Button";
 import TestimonialCard from "../components/TestimonialCard";
-import Questions from "../components/Questions";
 
 const KlantenreviewsPage = () => {
   const [visibleTestimonials, setVisibleTestimonials] = useState(3);
@@ -18,14 +15,13 @@ const KlantenreviewsPage = () => {
           <h1 className="mb-4 text-2xl sm:text-4xl font-bold text-mainDark">
             Lees onze <span className="text-mainBlue">klantervaringen</span>
           </h1>
-          <p className="max-w-xl text-gray-700 text-center mx-auto">
+          <p className="max-w-xl text-gray-500 text-md text-center mx-auto">
             <span className="font-bold">
               Ontdek wat onze klanten zeggen over onze software!
             </span>{" "}
-            Lees over hun positieve ervaringen en ontdek waarom ze voor onze
-            producten hebben gekozen. Onze software helpt professionals en
-            creatievelingen hun doelen te bereiken. We kijken ernaar uit om ook
-            met u samen te werken!
+            Lees over hun positieve ervaringen en ontdek waarom professionals en
+            creatievelingen voor onze producten kiezen. Onze software helpt hen
+            hun doelen te bereiken.
           </p>
         </div>
         <div className="flex">
@@ -44,7 +40,7 @@ const KlantenreviewsPage = () => {
           </button>
         )}
       </div>
-      <Questions />
+      {/* <Questions /> */}
     </section>
   );
 };

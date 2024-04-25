@@ -238,3 +238,54 @@ export const testimonials = [
       "De ondersteuning en functionaliteiten van PhpStorm voor PHP-ontwikkeling zijn ongeëvenaard. Ik kan efficiënter coderen dankzij de slimme code-assistentie.",
   },
 ];
+
+export const faqQuestions = [
+  {
+    id: 1,
+    question: "Hoe maak ik een account aan?",
+    answer:
+      "U kunt een account aanmaken door op onze website naar de registratiepagina te gaan en uw persoonlijke informatie in te vullen. Na registratie heeft u toegang tot uw bestellingen en kunt u sneller afrekenen.",
+  },
+  {
+    id: 2,
+    question: "Hoe kan ik betalen met PayPal?",
+    answer:
+      "Betalen met PayPal is eenvoudig. Selecteer PayPal als uw betaalmethode bij het afrekenen en u wordt doorgestuurd naar de PayPal-website om uw betaling veilig te voltooien.",
+  },
+  {
+    id: 3,
+    question: "Kan ik mijn abonnement annuleren?",
+    answer:
+      "Ja, u kunt uw abonnement op elk moment annuleren. Bezoek uw dashboard en volg de instructies voor abonnementsbeheer of neem contact op met onze klantenservice voor assistentie.",
+  },
+  {
+    id: 4,
+    question: "Hoe kan ik contact opnemen met de klantenservice?",
+    answer:
+      "Voor ondersteuning kunt u onze klantenservice bereiken via de contactpagina op onze website, of u kunt direct een e-mail sturen naar onze support afdeling.",
+  },
+  {
+    id: 5,
+    question: "Welke soorten software biedt Zenno aan?",
+    answer:
+      "Zenno biedt een breed scala aan softwareproducten, inclusief tools voor bedrijfsbeheer, grafisch ontwerp, educatieve software en veel meer. Elk product is zorgvuldig geselecteerd om aan de behoeften van zowel professionals als consumenten te voldoen.",
+  },
+  {
+    id: 6,
+    question: "Hoe download ik software na aankoop?",
+    answer:
+      "Na uw aankoop ontvangt u een e-mail met een downloadlink en instructies voor installatie. U kunt ook software downloaden vanuit uw account onder de sectie 'Mijn downloads'.",
+  },
+  {
+    id: 7,
+    question: "Wat zijn de systeemvereisten voor de software?",
+    answer:
+      "De systeemvereisten variëren per softwareproduct. Op de productpagina vindt u een tabblad 'Systeemvereisten' waar de minimale en aanbevolen specificaties vermeld staan.",
+  },
+  {
+    id: 8,
+    question: "Biedt Zenno software-updates aan?",
+    answer:
+      "Ja, Zenno biedt updates voor software die u heeft aangeschaft, zolang de licentie geldig is. U kunt updates direct downloaden vanuit uw account wanneer deze beschikbaar zijn.",
+  },
+];
