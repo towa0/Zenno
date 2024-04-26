@@ -46,51 +46,69 @@ const ProductDetail = ({ product }) => {
   // };
 
   return (
-    <div className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-bold mb-2">{product.title}</h2>
-      <p className="mb-4">{product.description}</p>
-      <img src={product.image} className="mb-4 max-w-xs" alt={product.title} />
-      <p className="mb-1">Price: €{subscription.price},-</p>
-      <p className="mb-4">
-        Subscription length: {subscription.subscriptionLength}
-      </p>
-      <form className="w-full max-w-md">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="mb-4 p-2 w-full border rounded"
-          required
+    <div className="flex flex-col items-center justify-center ">
+      <div className="bg-background/30 backdrop-blur-md flex flex-col justify-between p-6 cursor-pointer hover:shadow-xl rounded-xl border-2 border-gray-300 shadow-lg transition-shadow duration-300 ease-in-out sm:w-[28vw]">
+        <h2 className="text-2xl font-bold text-mainDark my-3 text-center">
+          {product.title}
+        </h2>
+        <p className="mb-4 text-center text-gray-700">{product.description}</p>
+        <img
+          src={product.image}
+          className="w-auto h-40 object-cover rounded-lg mb-4 mx-auto"
+          alt={product.title}
         />
-        <select
-          onChange={handleChange}
-          defaultValue=""
-          className="mb-4 p-2 w-full border rounded"
-          required
-        >
-          <option value="" disabled>
-            Select subscription length
-          </option>
-          <option value={product.dayprice}>Day €{product.dayprice},-</option>
-          <option value={product.weekprice}>Week €{product.weekprice},-</option>
-          <option value={product.monthprice}>
-            Month €{product.monthprice},-
-          </option>
-          <option value={product.lifetimeprice}>
-            Lifetime €{product.lifetimeprice},-
-          </option>
-        </select>
-        <div className="flex justify-center">
-          {/* <CardElement className="mb-4 p-2 w-full border rounded" /> */}
-          <button
-            type="submit"
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 w-full"
+        <p className="mb-1 text-lg">
+          Prijs:{" "}
+          <span className="text-mainBlue font-bold">
+            €{subscription.price},-
+          </span>
+        </p>
+        <p className="mb-4 text-lg">
+          Abonnement lengte:{" "}
+          <span className="text-mainBlue font-bold">
+            {subscription.subscriptionLength}
+          </span>
+        </p>
+        <form className="w-full max-w-md">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="mb-4 p-2 w-full border rounded-lg"
+            required
+          />
+          <select
+            onChange={handleChange}
+            defaultValue=""
+            className="mb-4 p-2 w-full border rounded-lg"
+            required
           >
-            Buy Now
-          </button>
-        </div>
-      </form>
+            <option value="" disabled>
+              Select subscription length
+            </option>
+            <option value={product.dayprice}>Day €{product.dayprice},-</option>
+            <option value={product.weekprice}>
+              Week €{product.weekprice},-
+            </option>
+            <option value={product.monthprice}>
+              Month €{product.monthprice},-
+            </option>
+            <option value={product.lifetimeprice}>
+              Lifetime €{product.lifetimeprice},-
+            </option>
+          </select>
+          <div className="flex justify-center">
+            {/* <CardElement className="mb-4 p-2 w-full border rounded" /> */}
+            <button
+              type="submit"
+              className="border-2 rounded-lg font-bold duration-200 px-4 py-2 border-mainBlue bg-mainBlue text-white hover:bg-mainBlue/80 w-full"
+            >
+              Koop nu
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

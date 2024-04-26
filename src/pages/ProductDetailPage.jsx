@@ -11,14 +11,14 @@ const ProductDetailPage = () => {
 
   useEffect(() => {
     fetch(`http://localhost:3001/buyProduct/${id}`)
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         if (data && data.length > 0) {
-          setProduct(data[0]); 
+          setProduct(data[0]);
         }
         setLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error fetching product:", error);
         setLoading(false);
       });
@@ -28,7 +28,7 @@ const ProductDetailPage = () => {
     <section className="max-w-6xl min-h-screen mx-auto mt-[10vh]">
       <BackgroundCircles
         circles={[
-          { top: "4vh", left: "40vw", size: 200, color: "bg-purple-400" }, 
+          { top: "4vh", left: "50vw", size: 200, color: "bg-purple-400" },
           { top: "20vh", left: "10vw", size: 200, color: "bg-blue-400" },
           { top: "40vh", left: "60vw", size: 200, color: "bg-indigo-400" },
         ]}
@@ -40,11 +40,17 @@ const ProductDetailPage = () => {
       </div>
       <div className="container mx-auto px-4 py-8">
         {loading ? (
-          <div>Loading...</div>
+          <div className="flex w-full justify-center mt-[25vh]">
+            <h1 className="text-4xl font-bold text-mainDark">Loading...</h1>
+          </div>
         ) : product ? (
           <ProductDetail product={product} />
         ) : (
-          <p>Product not found.</p>
+          <div className="flex w-full justify-center mt-[25vh]">
+            <h1 className="text-4xl font-bold text-mainDark">
+              Product niet <span className="text-mainBlue">gevonden.</span>
+            </h1>
+          </div>
         )}
       </div>
     </section>
