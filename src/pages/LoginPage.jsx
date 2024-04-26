@@ -15,10 +15,13 @@ const LoginPage = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3001/login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "https://zenno-database-production.up.railway.app/login",
+        {
+          username,
+          password,
+        }
+      );
 
       if (response.data.validation) {
         login(response.data.user);

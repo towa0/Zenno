@@ -12,7 +12,7 @@ const RegisterPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3001/register", {
+      .post("https://zenno-database-production.up.railway.app/register", {
         username: username,
         password: password,
         email: email,

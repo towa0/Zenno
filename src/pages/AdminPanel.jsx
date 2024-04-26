@@ -19,7 +19,7 @@ const AdminPanel = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:3001/products")
+    fetch("https://zenno-database-production.up.railway.app/products")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching products:", error));

@@ -10,7 +10,7 @@ const ProductDetailPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/buyProduct/${id}`)
+    fetch(`https://zenno-database-production.up.railway.app/buyProduct/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.length > 0) {
