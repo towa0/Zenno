@@ -1,9 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const TermsAndConditions = () => {
   return (
-    <div className="prose max-w-4xl mx-auto p-8 mt-[10vh]">
+    <div className="prose max-w-3xl mx-auto p-8 mt-[10vh]">
       <h1>
         Algemene Voorwaarden <span className="text-mainBlue">Zenno</span>
       </h1>
