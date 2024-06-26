@@ -28,6 +28,7 @@ function App() {
           <Route path="/apps" element={<AppsPage />} />
           <Route path="/buyproduct/:id" element={<ProductDetailPage />} />
           <Route path="/*" element={<ErrorPage />} />
+          <Route path="/404" element={<ErrorPage />} />
           <Route path="/over-ons" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route

@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { useAuth } from "../backend/AuthProvider";
 // import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 // import { useNavigate } from "react-router-dom";
 
 const ProductDetail = ({ product }) => {
+  const { user } = useAuth();
   const [subscription, setSubscription] = useState({
     price: 0,
     subscriptionLength: "",
   });
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(user ? user.email : "");
   // const stripe = useStripe();
   // const elements = useElements();
 
